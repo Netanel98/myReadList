@@ -57,6 +57,6 @@ dependencies {
     implementation(libs.glide)
 
     // Use `ksp` for annotation processors
-    ksp(libs.androidx.room.compiler) // Ensure this alias matches the one in your TOML file
-    ksp(libs.glide.compiler) // Ensure this alias matches the one in your TOML file
+    kotlin(libs.androidx.room.compiler) // Ensure this alias matches the one in your TOML file
+    kotlin(libs.glide.compiler) // Ensure this alias matches the one in your TOML file
 }
