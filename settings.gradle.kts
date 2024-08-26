@@ -21,4 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "MyReadList"
 include(":app")
+
+enableFeaturePreview("VERSION_CATALOGS")
  

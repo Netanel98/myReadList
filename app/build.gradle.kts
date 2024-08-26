@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.kotlin.ksp)
 }
 
 android {
@@ -33,10 +34,13 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -50,5 +54,9 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.firebase.auth.ktx)
     implementation(libs.androidx.room.ktx)
-    //kapt(libs.androidx.room.compiler)
+    implementation(libs.glide)
+
+    // Use `ksp` for annotation processors
+    ksp(libs.androidx.room.compiler) // Ensure this alias matches the one in your TOML file
+    ksp(libs.glide.compiler) // Ensure this alias matches the one in your TOML file
 }
