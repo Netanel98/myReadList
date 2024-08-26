@@ -6,14 +6,16 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 
-class BookAdapter(private val bookList: List<Book>) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
+class BookAdapter(
+    private val books: List<Book>,
+    private val onBookClicked: (Book) -> Unit
+) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
 
-    class BookViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val titleTextView: TextView = view.findViewById(R.id.text_view_title)
-        val authorTextView: TextView = view.findViewById(R.id.text_view_author)
-        val coverImageView: ImageView = view.findViewById(R.id.image_view_cover)
+    class BookViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val titleTextView: TextView = itemView.findViewById(R.id.book_title)
+        val authorTextView: TextView = itemView.findViewById(R.id.book_author)
+        val coverImageView: ImageView = itemView.findViewById(R.id.book_cover)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
@@ -22,14 +24,15 @@ class BookAdapter(private val bookList: List<Book>) : RecyclerView.Adapter<BookA
     }
 
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
-        val book = bookList[position]
+        val book = books[position]
         holder.titleTextView.text = book.title
         holder.authorTextView.text = book.author
-        // Load image with Glide or similar library
-        Glide.with(holder.itemView.context)
-            .load(book.coverImageUrl)
-            .into(holder.coverImageView)
+        holder.coverImageView.setImageResource(R.drawable.default_cover_image)
+
+        holder.itemView.setOnClickListener {
+            onBookClicked(book)
+        }
     }
 
-    override fun getItemCount(): Int = bookList.size
+    override fun getItemCount(): Int = books.size
 }

@@ -21,12 +21,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "MyReadList"
 include(":app")
-
-enableFeaturePreview("VERSION_CATALOGS")
-dependencyResolutionManagement {
-    versionCatalogs {
-        create("libs") {
-            from(files("gradle/libs.versions.toml"))
-        }
-    }
-}
