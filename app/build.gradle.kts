@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.kotlin.ksp)
+    id("kotlin-kapt")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -56,7 +58,19 @@ dependencies {
     implementation(libs.androidx.room.ktx)
     implementation(libs.glide)
 
-    // Use `ksp` for annotation processors
-    kotlin(libs.androidx.room.compiler) // Ensure this alias matches the one in your TOML file
-    kotlin(libs.glide.compiler) // Ensure this alias matches the one in your TOML file
+    kapt(libs.androidx.room.compiler.v261)
+    implementation(libs.androidx.room.ktx.v261)
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.androidx.navigation.fragment.ktx.vlasterversion)
+    implementation(libs.androidx.navigation.ui.ktx.vlasterversion)
+
+}
+
+kapt {
+    correctErrorTypes = true
+}
+
+fun kapt(function: () -> Unit) {
+
 }
