@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.storage.CacheResetOnProcessCanceled.enabled
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -10,6 +12,10 @@ android {
     namespace = "com.example.myreadlist"
     compileSdk = 34
 
+    viewBinding {
+        enabled = true
+
+    }
     defaultConfig {
         applicationId = "com.example.myreadlist"
         minSdk = 34

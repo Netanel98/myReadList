@@ -10,12 +10,8 @@ pluginManagement {
         mavenCentral()
         gradlePluginPortal()
     }
-}
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
+    plugins {
+        id("com.google.devtools.ksp") version libs.versions.ksp.get()
     }
 }
 
