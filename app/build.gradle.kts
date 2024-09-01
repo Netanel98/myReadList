@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.kotlin.ksp)
-    id("kotlin-kapt")
+    id("kotlin-ksp")
     id("androidx.navigation.safeargs.kotlin")
 }
 
@@ -58,7 +58,7 @@ dependencies {
     implementation(libs.androidx.room.ktx)
     implementation(libs.glide)
 
-    kapt(libs.androidx.room.compiler.v261)
+    ksp(libs.androidx.room.compiler.v261)
     implementation(libs.androidx.room.ktx.v261)
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
@@ -67,10 +67,6 @@ dependencies {
 
 }
 
-kapt {
-    correctErrorTypes = true
-}
-
-fun kapt(function: () -> Unit) {
-
+fun ksp(v261: Any) {
+    var correctErrorTypes = true
 }
