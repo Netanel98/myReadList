@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Use binding to access your views
-        binding.sampleTextView.text = "Updated Text"
+        "Updated Text".also { binding.sampleTextView.text = it }
     }
 }
 
