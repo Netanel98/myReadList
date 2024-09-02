@@ -10,9 +10,9 @@ pluginManagement {
         mavenCentral()
         gradlePluginPortal()
     }
-    plugins {
-        id("com.google.devtools.ksp") version libs.versions.ksp.get()
-    }
+//     plugins {
+//        id("com.google.devtools.ksp") version libs.versions.ksp.get()
+//    }
 }
 
 rootProject.name = "MyReadList"

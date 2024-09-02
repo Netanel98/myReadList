@@ -12,9 +12,9 @@ android {
     namespace = "com.example.myreadlist"
     compileSdk = 34
 
-    viewBinding {
-        enabled = true
-
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
     }
     defaultConfig {
         applicationId = "com.example.myreadlist"
@@ -54,6 +54,8 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.library)
+    implementation(libs.androidx.databinding.runtime)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
